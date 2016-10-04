@@ -38,7 +38,9 @@ cinst -y  chocolatey
 cinst -y chocolateygui
 cinst -y 7zip.install
 cinst -y skype
-cinst -y notepadplusplus.install --allow-empty-checksums
+choco feature enable -n allowEmptyChecksums
+cinst -y notepadplusplus.install
+choco feature disable -n allowEmptyChecksums
 cinst -y googlechrome
 cinst -y firefox
 cinst -y mremoteng
