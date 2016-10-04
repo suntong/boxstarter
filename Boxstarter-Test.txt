@@ -35,16 +35,16 @@ Set-TaskbarOptions -Size Small -Lock
 #       	 Install base stuff           	#
 ###########################################
 cinst -y  chocolatey
-cinstm -y chocolateygui
-cinstm -y 7zip.install
-cinstm -y skype
-cinstm -y notepadplusplus.install
-cinstm -y googlechrome
-cinstm -y firefox
-cinstm -y mremoteng
-cinstm -y winmerge
-cinstm -y hipchat
-cinstm -y filezilla
-cinstm -y openvpn
-cinstm -y vlc
-cinstm -y adobereader
+cinst -y chocolateygui
+cinst -y 7zip.install
+cinst -y skype
+cinst -y notepadplusplus.install
+cinst -y googlechrome
+cinst -y firefox
+cinst -y mremoteng
+cinst -y winmerge
+cinst -y hipchat
+cinst -y filezilla
+cinst -y openvpn
+cinst -y vlc
+cinst -y adobereader
