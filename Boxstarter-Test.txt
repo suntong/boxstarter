@@ -27,8 +27,9 @@ if (Test-PendingReboot) { Invoke-Reboot }
 #       	 Set explorer options         	#
 ###########################################
 
-Set-ExplorerOptions -showHidenFilesFoldersDrives -showProtectedOSFiles -showFileExtensions
-Set-TaskbarSmall
+Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions -EnableShowFullPathInTitleBar -EnableExpandToOpenFolder
+#-EnableOpenFileExplorerToQuickAccess -EnableShowRecentFilesInQuickAccess -EnableShowFrequentFoldersInQuickAccess
+Set-TaskbarOptions -Size Small -Lock
 
 ###########################################
 #       	 Install base stuff           	#
