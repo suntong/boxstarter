@@ -34,6 +34,7 @@ Set-TaskbarOptions -Size Small -Lock
 ###########################################
 #       	 Install base stuff           	#
 ###########################################
+cinst -y  chocolatey
 cinstm -y chocolateygui
 cinstm -y 7zip.install
 cinstm -y skype
