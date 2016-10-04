@@ -38,7 +38,7 @@ cinst -y  chocolatey
 cinst -y chocolateygui
 cinst -y 7zip.install
 cinst -y skype
-cinst -y notepadplusplus.install
+cinst -y notepadplusplus.install --allow-empty-checksums
 cinst -y googlechrome
 cinst -y firefox
 cinst -y mremoteng
