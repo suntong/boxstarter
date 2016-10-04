@@ -5,7 +5,7 @@
 # Set Execution Policy and Disable UAC 	#
 #########################################
 
-Set-ExecutionPolicy Unrestricted 
+Set-ExecutionPolicy Unrestricted -Force
 Disable-UAC 
 
 ##################################
