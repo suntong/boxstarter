@@ -1,0 +1,45 @@
+#The command to run, built from the raw link of this gist 
+#START http://boxstarter.org/package/nr/url?
+
+#########################################
+# Set Execution Policy and Disable UAC 	#
+#########################################
+
+Set-ExecutionPolicy Unrestricted 
+Disable-UAC 
+
+##################################
+# Install Chocolatey & Boxstarter	# 
+###################################
+
+iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
+
+###########################################
+# Update Windows and reboot if necessary	#
+###########################################
+Enable-MicrosoftUpdate
+
+Install-WindowsUpdate -AcceptEula -GetUpdatesFromMS
+if (Test-PendingReboot) { Invoke-Reboot }
+
+###########################################
+#       	 Set explorer options         	#
+###########################################
+
+Set-ExplorerOptions -showHidenFilesFoldersDrives -showProtectedOSFiles -showFileExtensions
+Set-TaskbarSmall
+
+###########################################
+#       	 Install base stuff           	#
+###########################################
+cinst -y chocolateygui
+cinst -y 7zip.install
+cinst -y skype
+cinst -y otepadplusplus.install
+cinst -y googlechrome
+cinst -y firefox
+cinst -y mremoteng
+cinst -y winmerge
+cinst -y hipchat
+cinst -y filezilla
+openvpn
