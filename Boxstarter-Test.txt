@@ -37,7 +37,7 @@ Set-TaskbarOptions -Size Small -Lock
 cinst -y chocolateygui
 cinst -y 7zip.install
 cinst -y skype
-cinst -y otepadplusplus.install
+cinst -y notepadplusplus.install
 cinst -y googlechrome
 cinst -y firefox
 cinst -y mremoteng
