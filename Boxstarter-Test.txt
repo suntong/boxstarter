@@ -84,7 +84,7 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\
 # Change it back to "Quick Access" (Windows 10 default)
 #Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name LaunchTo -Type DWord -Value 2
 
-# These make "Quick Access" behave much closer to the old "Favorites"
+# These make 'Quick Access' behave much closer to the old 'Favorites'
 # Disable Quick Access: Recent Files
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowRecent -Type DWord -Value 0
 # Disable Quick Access: Frequent Folders
