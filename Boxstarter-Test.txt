@@ -14,12 +14,6 @@ $Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a r
 Write-Host "Setting execution policy"
 Update-ExecutionPolicy Unrestricted
 
-Write-Host "Disable IE ESC"
-Disable-InternetExplorerESC
-
-Write-Host "Disable UAC"
-Disable-UAC
-
 ###########################################
 # Update Windows and reboot if necessary	#
 ###########################################
@@ -48,6 +42,13 @@ Install-WindowsUpdate -AcceptEula -GetUpdatesFromMS
 ##################
 # Privacy Settings
 ##################
+
+
+Write-Host "Disable IE ESC"
+Disable-InternetExplorerESC
+
+Write-Host "Disable UAC"
+Disable-UAC
 
 Disable-BingSearch
 
