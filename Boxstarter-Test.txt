@@ -45,8 +45,6 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryO
 
 Write-Host "Install WindowsUpdate"
 Install-WindowsUpdate -AcceptEula -GetUpdatesFromMS
-if (Test-PendingReboot) { Invoke-Reboot }
-
 ##################
 # Privacy Settings
 ##################
@@ -102,9 +100,6 @@ Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization
 #Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization -Name NoLockScreen -Type DWord -Value 1
 
 Set-TaskbarSmall
-if (Test-PendingReboot) { Invoke-Reboot }
-
-
 
 ###########################################
 #       	 Set explorer options         	#
