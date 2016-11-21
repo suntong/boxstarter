@@ -108,4 +108,5 @@ Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtec
 #-EnableOpenFileExplorerToQuickAccess -EnableShowRecentFilesInQuickAccess -EnableShowFrequentFoldersInQuickAccess
 Set-TaskbarOptions -Size Small -Lock
 
-if (Test-PendingReboot) { Invoke-Reboot }
+#Need a check to see if this reboot has already been done...
+#if (Test-PendingReboot) { Invoke-Reboot }
