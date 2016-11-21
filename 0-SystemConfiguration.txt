@@ -23,7 +23,7 @@ Enable-MicrosoftUpdate
 
 Write-Host "Change Windows Updates to 'Notify to schedule restart'"
 If (-Not (Test-Path "HKCU:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings")) {
-    New-Item -Path HKCU:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings | Out-Null
+    #New-Item -Path HKCU:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings | Out-Null
 }
 # Change Windows Updates to "Notify to schedule restart"
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings -Name UxOption -Type DWord -Value 1
@@ -33,10 +33,10 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings -Name 
 
 Write-Host "Disable P2P Update downlods outside of local network"
 If (-Not (Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization")) {
-    New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization | Out-Null
+    #New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization | Out-Null
 }
 If (-Not (Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config")) {
-    New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config | Out-Null
+    #New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config | Out-Null
 }
 # Disable P2P Update downlods outside of local network
 Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config -Name DODownloadMode -Type DWord -Value 1
@@ -64,7 +64,7 @@ Disable-BingSearch
 
 # Privacy: Let apps use my advertising ID: Disable
 If (-Not (Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo")) {
-    New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo | Out-Null
+    #New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo | Out-Null
 }
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo -Name Enabled -Type DWord -Value 0
 # To Restore:
@@ -73,7 +73,7 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Advertisi
 
 # Privacy: SmartScreen Filter for Store Apps: Disable
 If (-Not (Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost")) {
-    New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost | Out-Null
+    #New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost | Out-Null
 }
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost -Name EnableWebContentEvaluation -Type DWord -Value 0
 # To Restore:
@@ -82,7 +82,7 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost -
 
 # WiFi Sense: HotSpot Sharing: Disable
 If (-Not (Test-Path "HKLM:\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting")) {
-    New-Item -Path HKLM:\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting | Out-Null
+    #New-Item -Path HKLM:\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting | Out-Null
 }
 Set-ItemProperty -Path HKLM:\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting -Name value -Type DWord -Value 0
 # WiFi Sense: Shared HotSpot Auto-Connect: Disable
@@ -94,7 +94,7 @@ Set-ItemProperty -Path HKLM:\Software\Microsoft\PolicyManager\default\WiFi\Allow
 
 # Disable Telemetry (requires a reboot to take effect)
 If (-Not (Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection")) {
-    New-Item -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection | Out-Null
+    #New-Item -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection | Out-Null
 }
 Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection -Name AllowTelemetry -Type DWord -Value 0
 Get-Service DiagTrack,Dmwappushservice | Stop-Service | Set-Service -StartupType Disabled
@@ -106,7 +106,7 @@ Get-Service DiagTrack,Dmwappushservice | Stop-Service | Set-Service -StartupType
 
 # Change Explorer home screen back to "This PC"
 If (-Not (Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced")) {
-    New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced | Out-Null
+    #New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced | Out-Null
 }
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name LaunchTo -Type DWord -Value 1
 # Change it back to "Quick Access" (Windows 10 default)
@@ -116,7 +116,7 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\
 # These make "Quick Access" behave much closer to the old "Favorites"
 # Disable Quick Access: Recent Files
 If (-Not (Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer")) {
-    New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer | Out-Null
+   #New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer | Out-Null
 }
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowRecent -Type DWord -Value 0
 # Disable Quick Access: Frequent Folders
