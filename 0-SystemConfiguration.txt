@@ -23,7 +23,7 @@ Enable-MicrosoftUpdate
 
 Write-Host "Change Windows Updates to 'Notify to schedule restart'"
 If (-Not (Test-Path "HKCU:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings")) {
-    #New-Item -Path HKCU:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings | Out-Null
+    New-Item -Path HKCU:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings | Out-Null
 }
 # Change Windows Updates to "Notify to schedule restart"
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings -Name UxOption -Type DWord -Value 1
