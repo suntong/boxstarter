@@ -4,7 +4,7 @@
 cinst -y  chocolatey
 cinst -y chocolateygui
 cinst -y 7zip.install
-cinst -y skype
+cinst -y skype --allowemptychecksumsecure
 cinst -y notepadplusplus.install --allowemptychecksumsecure
 cinst -y googlechrome
 cinst -y firefox
