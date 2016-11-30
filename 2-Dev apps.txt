@@ -6,7 +6,7 @@ $Boxstarter.RebootOk=$false # Allow reboots?
 $Boxstarter.NoPassword=$false # Is this a machine with no login password?
 $Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a reboot
 
-choco feature enable -n allowEmptyChecksums
+choco feature enable -n allowEmptyChecksums #Apparently there are packagers who don't bother to fill the checksum. Trying like that for now.
 cinst -y git.install
 cinst -y tortoisegit
 #cinst -y poshgit #Look into that, powershell for git.
