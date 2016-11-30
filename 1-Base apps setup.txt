@@ -25,7 +25,7 @@ cinst -y filezilla
 cinst -y mremoteng
 cinst -y winmerge
 cinst -y vlc
-cinst -y toggl #Timetracker
+cinst -y toggl --allow-empty-checksums-secure #Timetracker
 cinst -y haroopad
 cinst -y googledrive
 cinst -y office365proplus #No 2016 available.
