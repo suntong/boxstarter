@@ -21,3 +21,5 @@ cinst -y virtualbox
 cinst -y nodejs.install
 cinst -y visualstudio2015professional
 choco feature disable -n allowEmptyChecksums
+
+cwindowsfeatures  IIS-WebServerRole
