@@ -9,9 +9,10 @@ $Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a r
 ###########################################
 #       	 Install base stuff           	#
 ###########################################
-choco feature enable -n allowEmptyChecksums #Apparently there are packagers who don't bother to fill the checksum. Trying like that for now.
+
 cinst -y chocolatey
 cinst -y chocolateygui
+choco feature enable -n allowEmptyChecksums #Apparently there are packagers who don't bother to fill the checksum. Trying like that for now.
 cinst -y 7zip.install
 cinst -y notepadplusplus.install
 cinst -y openvpn
