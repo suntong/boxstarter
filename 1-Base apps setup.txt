@@ -12,14 +12,21 @@ $Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a r
 cinst -y chocolatey
 cinst -y chocolateygui
 cinst -y 7zip.install
-cinst -y skype
 cinst -y notepadplusplus.install
+cinst -y openvpn
+cinst -y skype
+cinst -y hipchat
 cinst -y googlechrome
 cinst -y firefox
+cinst -y adobereader
+cinst -y filezilla
 cinst -y mremoteng
 cinst -y winmerge
-cinst -y hipchat
-cinst -y filezilla
-cinst -y openvpn
 cinst -y vlc
-cinst -y adobereader
+cinst -y toggl #Timetracker
+cinst -y haroopad
+cinst -y googledrive
+cinst -y office365proplus #No 2016 available.
+cinst -y greenshot
+cinst -y imagemagick.app
+cinst -y windirstat
