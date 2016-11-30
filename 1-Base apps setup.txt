@@ -9,6 +9,7 @@ $Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a r
 ###########################################
 #       	 Install base stuff           	#
 ###########################################
+choco feature enable -n allowEmptyChecksums
 cinst -y chocolatey
 cinst -y chocolateygui
 cinst -y 7zip.install
@@ -30,3 +31,4 @@ cinst -y office365proplus #No 2016 available.
 cinst -y greenshot
 cinst -y imagemagick.app
 cinst -y windirstat
+choco feature disable -n allowEmptyChecksums

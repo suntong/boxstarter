@@ -6,6 +6,7 @@ $Boxstarter.RebootOk=$false # Allow reboots?
 $Boxstarter.NoPassword=$false # Is this a machine with no login password?
 $Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a reboot
 
+choco feature enable -n allowEmptyChecksums
 cinst -y git.install
 cinst -y tortoisegit
 #cinst -y poshgit #Look into that, powershell for git.
@@ -18,3 +19,5 @@ cinst -y linqpad
 cinst -y soapui
 cinst -y virtualbox
 cinst -y nodejs.install
+cinst -y visualstudio2015professional
+choco feature disable -n allowEmptyChecksums
