@@ -1,0 +1,20 @@
+#The command to run, built from the raw link of this gist 
+#START http://boxstarter.org/package/url?https://gist.githubusercontent.com/GreyKarnival/763adf559c413e0109cac8fad3604038/raw/2-Dev%2520apps.txt
+
+# Boxstarter options
+$Boxstarter.RebootOk=$false # Allow reboots?
+$Boxstarter.NoPassword=$false # Is this a machine with no login password?
+$Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a reboot
+
+cinst -y git.install
+cinst -y tortoisegit
+#cinst -y poshgit #Look into that, powershell for git.
+cinst -y putty.install
+cinst -y sublimetext3 #Need package control thing ?
+cinst -y visualstudiocode
+cinst -y papercut
+cinst -y fiddler4
+cinst -y linqpad
+cinst -y soapui
+cinst -y virtualbox
+cinst -y nodejs.install
