@@ -9,10 +9,10 @@ $Boxstarter.AutoLogin=$true # Save my password securely and auto-login after a r
 ###########################################
 #       	 Install base stuff           	#
 ###########################################
-cinst -y  chocolatey
-cinst -y chocolateygui
-cinst -y 7zip.install
-cinst -y skype --allow-empty-checksums
+#cinst -y  chocolatey
+#cinst -y chocolateygui
+#cinst -y 7zip.install
+cinst -y skype
 cinst -y notepadplusplus.install --allow-empty-checksums
 cinst -y googlechrome
 cinst -y firefox
