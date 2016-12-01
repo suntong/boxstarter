@@ -28,7 +28,7 @@ cinst -y vlc
 cinst -y toggl --allow-empty-checksums-secure #Timetracker
 cinst -y haroopad
 cinst -y googledrive
-cinst -y office365proplus #No 2016 available.
+#cinst -y office365proplus #No 2016 available.
 cinst -y greenshot
 cinst -y imagemagick.app
 cinst -y windirstat
