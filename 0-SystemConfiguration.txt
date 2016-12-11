@@ -2,7 +2,7 @@
 #START http://boxstarter.org/package/url?https://gist.githubusercontent.com/GreyKarnival/763adf559c413e0109cac8fad3604038/raw
 
 #########################################
-# Set Execution Policy and Disable UAC 	#
+# Set Execution Policy			#
 #########################################
 
 # Boxstarter options
@@ -56,8 +56,8 @@ Write-Host "Install WindowsUpdate"
 Write-Host "Disable IE ESC"
 Disable-InternetExplorerESC
 
-Write-Host "Disable UAC"
-Disable-UAC
+#Write-Host "Disable UAC"
+#Disable-UAC
 
 Disable-BingSearch
 
