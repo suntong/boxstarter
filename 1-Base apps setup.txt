@@ -28,7 +28,7 @@ cinst -y vlc
 cinst -y toggl #Timetracker
 cinst -y haroopad
 cinst -y googledrive
-#cinst -y office365proplus #No 2016 available.
 cinst -y greenshot
 cinst -y imagemagick.app
 cinst -y windirstat
+cinst -y office365proplus #No 2016 available.
