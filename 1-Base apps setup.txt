@@ -16,7 +16,7 @@ cinst -y chocolateygui
 cinst -y 7zip.install
 cinst -y notepadplusplus.install
 cinst -y openvpn #TODO :  add switch so that it doesn't start with windows
-cinst -y skype
+#cinst -y skype #removed because then the skype update crashes
 cinst -y hipchat
 cinst -y googlechrome
 cinst -y firefox
