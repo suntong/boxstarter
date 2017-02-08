@@ -21,7 +21,7 @@ cinst -y hipchat
 cinst -y googlechrome
 cinst -y firefox
 cinst -y adobereader
-cinst -y filezilla #=> Need switch for authorization
+#cinst -y filezilla #=> Need switch for authorization
 cinst -y mremoteng
 cinst -y winmerge
 cinst -y vlc 
@@ -31,4 +31,4 @@ cinst -y googledrive
 cinst -y greenshot
 cinst -y imagemagick.app
 cinst -y windirstat
-cinst -y office365proplus #No 2016 available. => This shit doesn't work
+#cinst -y office365proplus #No 2016 available. => This shit doesn't work

@@ -19,6 +19,6 @@ cinst -y linqpad
 cinst -y soapui
 cinst -y virtualbox
 cinst -y nodejs.install
-cinst -y visualstudio2015professional
+#cinst -y visualstudio2015professional
 
-cwindowsfeatures  IIS-WebServerRole
+#cwindowsfeatures  IIS-WebServerRole
