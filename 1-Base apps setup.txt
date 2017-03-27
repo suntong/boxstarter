@@ -31,4 +31,4 @@ cinst -y googledrive
 cinst -y greenshot
 cinst -y imagemagick.app
 cinst -y windirstat
-#cinst -y office365proplus #No 2016 available. => This shit doesn't work
+cinst -y jdk7
