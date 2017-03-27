@@ -47,7 +47,7 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryO
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization -Name SystemSettingsDownloadMode -Type DWord -Value 3
 
 Write-Host "Install WindowsUpdate"
-#Install-WindowsUpdate -AcceptEula -GetUpdatesFromMS
+Install-WindowsUpdate -AcceptEula -GetUpdatesFromMS
 ##################
 # Privacy Settings
 ##################
