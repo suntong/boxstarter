@@ -1,3 +1,21 @@
+# Description: Boxstarter Script
+# Author: suntong
+# Based on : Jess Frazelle <jess@linux.com>
+#   and https://gist.github.com/bunchc/44e380258384505758b6244e615e75ed
+# Last Updated: 2019-08-20
+#
+#### 1.- Console powershell (administrador):
+#	Set-ExecutionPolicy RemoteSigned
+#
+#### 2.- Install boxstarter:
+# 	. { iwr -useb http://boxstarter.org/bootstrapper.ps1 } | iex; get-boxstarter -Force
+#
+#### 3.- Correr en powershell en modo administrador:
+# 	Install-BoxstarterPackage -PackageName http://dui.uaslp.mx/kallithea/_admin/gists/14/tip/raw -DisableReboots
+# O:
+# 	start http://boxstarter.org/package/nr/url?http://dui.uaslp.mx/kallithea/_admin/gists/14/tip/raw
+# Ref: http://boxstarter.org/Learn/WebLauncher
+#
 #The command to run, built from the raw link of this gist 
 #START http://boxstarter.org/package/url?https://gist.github.com/bunchc/44e380258384505758b6244e615e75ed/raw/d648fffc21cb3cc7df79e50be6c05b05d29c79cc/0-SystemConfiguration.txt
 
@@ -15,7 +33,7 @@ Write-Host "Setting execution policy"
 Update-ExecutionPolicy Unrestricted
 
 ###########################################
-# Update Windows and reboot if necessary	#
+# Update Windows and reboot if necessary  #
 ###########################################
 
 Write-Host "Enable MicrosoftUpdate"
@@ -48,18 +66,30 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryO
 
 Write-Host "Install WindowsUpdate"
 Install-WindowsUpdate -AcceptEula -GetUpdatesFromMS
+
+#---- TEMPORARY ---
+Update-ExecutionPolicy Unrestricted
+Disable-UAC
+
+
 ##################
 # Privacy Settings
 ##################
 
+Enable-RemoteDesktop
 
+# Disabling Internet Explorer Enhanced Security Configuration
+# https://www.ibm.com/support/knowledgecenter/en/SSSHRK_3.9.0/com.ibm.networkmanagerip.doc_3.9/tip/ttip_trouble_esc.html
 Write-Host "Disable IE ESC"
 Disable-InternetExplorerESC
 
+# Disabling User Account Control (UAC)
+# https://docs.microsoft.com/en-us/windows/security/identity-protection/user-account-control/how-user-account-control-works
 #Write-Host "Disable UAC"
 #Disable-UAC
 
 Disable-BingSearch
+Disable-GameBarTips
 
 # Privacy: Let apps use my advertising ID: Disable
 If (!(Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo")) {
@@ -70,7 +100,6 @@ If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo
     New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo -Force | Out-Null
 }
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo -Name Enabled -Type DWord -Value 0
-
 
 # Privacy: SmartScreen Filter for Store Apps: Disable
 If (-Not (Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost")) {
@@ -133,9 +162,14 @@ If (-Not (Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Ad
     New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Force | Out-Null
 }
 Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name LaunchTo -Type DWord -Value 1
+
+# ## Win8
+Set-StartScreenOptions -EnableBootToDesktop
+
+# ## Win10
+
 # Change it back to "Quick Access" (Windows 10 default)
 #Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name LaunchTo -Type DWord -Value 2
-
 
 # These make "Quick Access" behave much closer to the old "Favorites"
 # Disable Quick Access: Recent Files
@@ -143,20 +177,20 @@ If (-Not (Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer"))
    New-Item -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Force | Out-Null
 }
 Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowRecent -Type DWord -Value 0
-# Disable Quick Access: Frequent Folders
-Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowFrequent -Type DWord -Value 0
-If (-Not (Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer")) {
-   New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Force | Out-Null
-}
-Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowRecent -Type DWord -Value 0
-# Disable Quick Access: Frequent Folders
-Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowFrequent -Type DWord -Value 0
 
-# To Restore:
+# == Disable Quick Access: Frequent Folders
+#Set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowFrequent -Type DWord -Value 0
+#If (-Not (Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer")) {
+#   New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Force | Out-Null
+#}
+#Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowRecent -Type DWord -Value 0
+# Disable Quick Access: Frequent Folders
+#Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowFrequent -Type DWord -Value 0
+# -- To Restore:
 #Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowRecent -Type DWord -Value 1
 #Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer -Name ShowFrequent -Type DWord -Value 1
 
-# Disable the Lock Screen (the one before password prompt - to prevent dropping the first character)
+# == Disable the Lock Screen (the one before password prompt - to prevent dropping the first character)
 If (-Not (Test-Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization)) {
 	New-Item -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows -Name Personalization | Out-Null
 }
@@ -165,16 +199,16 @@ If (-Not (Test-Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Personalization)) 
 	New-Item -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows -Name Personalization | Out-Null
 }
 Set-ItemProperty -Path HKCU:\SOFTWARE\Policies\Microsoft\Windows\Personalization -Name NoLockScreen -Type DWord -Value 1
-# To Restore:
+# -- To Restore:
 #Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization -Name NoLockScreen -Type DWord -Value 1
 
 ###########################################
-#       	 Set explorer options         	#
+#       	 Set explorer options     #
 ###########################################
 
-Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions -EnableShowFullPathInTitleBar -EnableExpandToOpenFolder
-#-EnableOpenFileExplorerToQuickAccess -EnableShowRecentFilesInQuickAccess -EnableShowFrequentFoldersInQuickAccess
-Set-TaskbarOptions -Size Small -Lock
+Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions -EnableShowFullPathInTitleBar -EnableExpandToOpenFolder -EnableOpenFileExplorerToQuickAccess -EnableShowRecentFilesInQuickAccess -EnableShowFrequentFoldersInQuickAccess
+
+Set-TaskbarOptions -Size Small -Dock Bottom -Combine Full -Lock -AlwaysShowIconsOn
 
 #Need a check to see if this reboot has already been done...
 #if (Test-PendingReboot) { Invoke-Reboot }
