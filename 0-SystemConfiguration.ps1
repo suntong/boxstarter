@@ -14,7 +14,7 @@
 #### 3.- Correr en powershell en modo administrador:
 # 	Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/suntong/boxstarter/master/0-SystemConfiguration.txt -DisableReboots
 # O:
-# 	start http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/suntong/boxstarter/master/0-SystemConfiguration.txt
+# 	start http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/suntong/boxstarter/master/0-SystemConfiguration.ps1
 # Ref: http://boxstarter.org/Learn/WebLauncher
 #
 #The command to run, built from the raw link of this gist 
