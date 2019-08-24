@@ -18,7 +18,7 @@
 # Ref: http://boxstarter.org/Learn/WebLauncher
 #
 #The command to run, built from the raw link of this gist 
-#START http://boxstarter.org/package/url?https://gist.github.com/bunchc/44e380258384505758b6244e615e75ed/raw/d648fffc21cb3cc7df79e50be6c05b05d29c79cc/0-SystemConfiguration.txt
+#START http://boxstarter.org/package/url?https://github.com/suntong/boxstarter/blob/master/0-SystemConfiguration.txt
 
 #########################################
 # Set Execution Policy			#
@@ -133,21 +133,19 @@ Get-AppxPackage *Netflix* | Remove-AppxPackage
 
 # Office Hub
 Get-AppxPackage Microsoft.MicrosoftOfficeHub | Remove-AppxPackage
-
 # One Connect
 Get-AppxPackage Microsoft.OneConnect | Remove-AppxPackage
-
 # OneNote
 Get-AppxPackage Microsoft.Office.OneNote | Remove-AppxPackage
 
 # People
 Get-AppxPackage Microsoft.People | Remove-AppxPackage
-
 # Phone
 Get-AppxPackage Microsoft.WindowsPhone | Remove-AppxPackage
-
 # Photos
 Get-AppxPackage Microsoft.Windows.Photos | Remove-AppxPackage
+Get-AppxPackage Microsoft.windowscommunicationsapps | Remove-AppxPackage
+Get-AppxPackage Microsoft.windowscamera | Remove-AppxPackage
 
 # Skype (Metro version)
 Get-AppxPackage Microsoft.SkypeApp | Remove-AppxPackage
@@ -252,6 +250,8 @@ Set-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\
 
 # ## Win8
 Set-StartScreenOptions -EnableBootToDesktop
+Set-StartScreenOptions -EnableListDesktopAppsFirst
+Set-CornerNavigationOptions -EnableUsePowerShellOnWinX
 
 # ## Win10
 
