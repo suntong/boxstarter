@@ -4,13 +4,27 @@
 
 # Install chocolatey/choco first, then
 # Run the following from an **elevated** powershell command-prompt:
+#      md C:\Temp
+#      Start-Transcript -NoClobber -Path C:\Temp\00-SysEssential.txt 
 # Note that you may need to lift the execution policy restriction:
 #      Set-ExecutionPolicy Bypass -Scope Process -Force
 # 1) install boxstarter
 #      CINST Boxstarter
 # 2) run boxstarter (Install-BoxstarterPackage -PackageName <URL-TO-RAW-GIST>)
 #      Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/suntong/boxstarter/master/00-SysEssential.ps1
-#
+# To terminate the recording
+#      Stop-Transcript
+
+#########################################
+# Set Basic directories                 #
+#########################################
+New-Item -ItemType directory -Path C:\Temp
+md C:\Tmp
+md C:\Tools
+md C:\Programs
+
+# Save all the commands and their output to a file in PowerShell, from outside instead.
+# Start-Transcript -NoClobber -Path C:\Temp\00-SysEssential.txt
 
 #########################################
 # Set Execution Policy			#
