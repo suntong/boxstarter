@@ -9,6 +9,7 @@
 # Note that you may need to lift the execution policy restriction:
 #      Set-ExecutionPolicy Bypass -Scope Process -Force
 # 1) install boxstarter
+#      choco upgrade chocolatey
 #      CINST Boxstarter
 # 2) run boxstarter (Install-BoxstarterPackage -PackageName <URL-TO-RAW-GIST>)
 #      Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/suntong/boxstarter/master/00-SysEssential.ps1
