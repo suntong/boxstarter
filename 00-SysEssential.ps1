@@ -5,15 +5,21 @@
 # Install chocolatey/choco first, then
 # Run the following from an **elevated** powershell command-prompt:
 #      md C:\Temp
-#      Start-Transcript -NoClobber -Path C:\Temp\00-SysEssential.txt 
+#      Start-Transcript -NoClobber -Path C:\Temp\00-Boxstarter.txt
 # Note that you may need to lift the execution policy restriction:
 #      Set-ExecutionPolicy Bypass -Scope Process -Force
 # 1) install boxstarter
 #      choco upgrade chocolatey
 #      CINST Boxstarter
+# Terminate the recording
+#      Stop-Transcript
+
+# Run a new powershell in **elevated** mode:
 # 2) run boxstarter (Install-BoxstarterPackage -PackageName <URL-TO-RAW-GIST>)
-#      Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/suntong/boxstarter/master/00-SysEssential.ps1
-# To terminate the recording
+#      Set-ExecutionPolicy Bypass -Scope Process -Force
+#      Start-Transcript -NoClobber -Path C:\Temp\00-SysEssential.txt
+#      BoxstarterShell
+#      Install-BoxstarterPackage -DisableReboots -PackageName https://raw.githubusercontent.com/suntong/boxstarter/master/00-SysEssential.ps1
 #      Stop-Transcript
 
 #########################################
@@ -46,6 +52,7 @@ Disable-UAC
 ##################
 # Privacy Settings
 ##################
+Write-Host "Privacy Settings"
 
 Enable-RemoteDesktop
 
@@ -107,6 +114,7 @@ Get-Service DiagTrack,Dmwappushservice | Stop-Service | Set-Service -StartupType
 ############################
 # Personal Preferences on UI
 ############################
+Write-Host "Personal Preferences on UI"
 
 # Change Explorer home screen back to "This PC"
 If (-Not (Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced")) {
@@ -133,6 +141,7 @@ Set-CornerNavigationOptions -EnableUsePowerShellOnWinX
 ###########################################
 #       	 Set explorer options         #
 ###########################################
+Write-Host "Set explorer options"
 
 Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtectedOSFiles -EnableShowFileExtensions -EnableShowFullPathInTitleBar -EnableExpandToOpenFolder -EnableOpenFileExplorerToQuickAccess -EnableShowRecentFilesInQuickAccess -EnableShowFrequentFoldersInQuickAccess
 
@@ -150,6 +159,7 @@ Enable-UAC
 ###########################################
 # Update Windows and reboot if necessary  #
 ###########################################
+Write-Host "Update Windows"
 
 Write-Host "Enable MicrosoftUpdate"
 Enable-MicrosoftUpdate
@@ -173,5 +183,6 @@ Write-Host "Install WindowsUpdate"
 Install-WindowsUpdate -AcceptEula -GetUpdatesFromMS
 
 
+Write-Host "Reboot if necessary"
 #Need a check to see if this reboot has already been done...
 if (Test-PendingReboot) { Write-Host "System reboot necessary. Type:`nInvoke-Reboot" }
