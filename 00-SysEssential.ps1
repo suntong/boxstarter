@@ -10,7 +10,7 @@
 #      Set-ExecutionPolicy Bypass -Scope Process -Force
 # 1) install boxstarter
 #      choco upgrade chocolatey
-#      CINST Boxstarter
+#      choco install -y Boxstarter
 # Terminate the recording
 #      Stop-Transcript
 
